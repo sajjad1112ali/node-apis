@@ -4,7 +4,7 @@ const definitions = require('./definitions');
 const currentEnvironment = process.env.NODE_ENV;
 let vars = {};
 const prodEnviromentVars = { schemes: ['https'], host: 'nodeapis.imrancorporation.com' };
-const localEnviromentVars = { schemes: ['http'], host: 'localhost:4000' };
+const localEnviromentVars = { schemes: ['http'], host: 'localhost:3000' };
 vars = currentEnvironment === 'development' ? localEnviromentVars : prodEnviromentVars;
 
 module.exports = {
