@@ -1,0 +1,16 @@
+.DS_Store
+node_modules
+logs
+/dist
+/src/public/uploads
+
+# local env files
+.env
+
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

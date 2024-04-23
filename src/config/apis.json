@@ -1,0 +1,80 @@
+{
+  "oauth": {
+    "get": {},
+    "post": {
+      "token": {
+        "endpoint": "/token",
+        "headers": { "Authorization": "Basic <base64({client_id}:{client_secret})>", "Content-Type": "application/x-www-form-urlencoded" },
+        "params": { "grant_type":"authorization_code", "code":"", "redirect_uri":"" }
+      },
+      "refreshToken": {
+        "endpoint": "/token",
+        "headers": { "Authorization": "Basic <base64({client_id}:{client_secret})>", "Content-Type": "application/x-www-form-urlencoded" },
+        "params": { "grant_type":"refresh_token", "refresh_token":"" }
+      }
+    }
+  },
+  "carsxe": {
+    "get": {
+      "plateToVin": {
+        "endpoint": "/platedecoder?",
+        "headers": {},
+        "params": { "key": "", "plate":"", "state":"", "format":"json↵" }
+      },
+      "vehicleImage": {
+        "endpoint": "/images?",
+        "headers": {},
+        "params": { "key":"", "make":"", "model":"", "year":"", "angle":"front", "photoType":"exterior", "transparent":true, "color":"" }
+      }
+    },
+    "post": {}
+  },
+  "api": {
+    "get": {
+      "vehicleAttributes": {
+        "endpoint": "/vehicles/<id>",
+        "headers": { "Authorization": "Bearer <token>" },
+        "params":  {}
+      },
+      "vehicleVin": {
+        "endpoint": "/vehicles/<id>/vin",
+        "headers": { "Authorization": "Bearer <token>" },
+        "params":  {}
+      },
+      "vehicleListing": {
+        "endpoint": "/vehicles",
+        "headers": { "Authorization": "Bearer <token>" },
+        "params":  {}
+      },
+      "compatibility":{
+          "endpoint":"/compatibility?",
+          "headers": {},
+          "params": { "vin": "", "scope":"", "mode":"test", "test_mode_compatibility_level": "phev" }
+      },
+      "vehicleBatteryCapacity": {
+        "endpoint": "/vehicles/<id>/battery/capacity",
+        "headers": { "Authorization": "Bearer <token>" },
+        "params":  {}
+      }
+    },
+    "post": {
+      "batch": {
+        "endpoint": "/vehicles/<id>/batch",
+        "headers": { "Authorization": "Bearer <token>", "Content-Type": "application/json" },
+        "params":  {"requests": [{ "path" : "/odometer" }, { "path" : "/location" }]}
+      },
+      "subscribeWebhook": {
+        "endpoint": "/vehicles/<vehicle_id>/webhooks/<webhook_id>",
+        "headers": { "Authorization": "Bearer <token>", "Content-Type": "application/json" },
+        "params":  {}
+      }
+    },
+    "delete": {
+      "disconnect": {
+        "endpoint": "/vehicles/<id>/application",
+        "headers": { "Authorization": "Bearer <token>" },
+        "params":  {}
+      }
+    }
+  }
+}
