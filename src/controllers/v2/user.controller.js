@@ -19,7 +19,7 @@ const register = catchAsync(async (req, res) => {
   const user = await userService.createUser(body, currentUrl);
   if (currentEnvironment !== 'development' || 1) {
     body.url = currentUrl;
-    await emailService.sendEmail(body, EMAIL_TEMPLATES.WELCOME_KEY);
+    // await emailService.sendEmail(body, EMAIL_TEMPLATES.WELCOME_KEY);
   }
   const tokens = await tokenService.generateAuthTokens(user);
   res.status(httpStatus.OK).send({ user, tokens, currentUrl });
