@@ -12,7 +12,8 @@
   },
   "scripts": {
     "start": "node src/index.js",
-    "build": "pm2 start src/index.js"
+    "build": "pm2 start src/index.js",
+    "stop": "pm2 stop 0"
   },
   "keywords": [
     "node",
